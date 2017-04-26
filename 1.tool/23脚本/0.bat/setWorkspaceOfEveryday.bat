@@ -1,0 +1,9 @@
+set source=%cd%
+set myworkspace=%cd%
+call creat_folder.bat
+cd %myworkspace%
+call cleanup.bat
+cd %myworkspace%
+call settlefolder.bat
+cd %myworkspace%
+call settlefile.bat

@@ -1,0 +1,352 @@
+开始
+CiceroUIWndFrame
+Administrator
+「开始」菜单
+QQ
+任务切换
+跳转列表
+LANDESK Remote Control
+人小时
+关闭标签页 (Ctrl+W)
+实时加速工具
+电脑管家 - 加速小火箭
+加速小火箭
+加速小火箭
+小火箭通用加速
+LDEVICEMGR_WINDOW_{49DCDDA1-BF03-46BC-B469-59A0616325A2}
+LOGI_RAWINPUT_WND
+Network Flyout
+加速小火箭
+限速提示
+游戏加速中
+小火箭游戏加速
+ShadowEdge
+登录电脑管家
+CiceroUIWndFrame
+TF_FloatingLangBar_WndTitle
+OfficePowerManagerWindow
+DDE Server Window
+Microsoft Word
+1.vbs
+查找
+I:\MYHOME\1.tool\23脚本\1.vbs\runs.vbs - Notepad++ [Administrator]
+vbs
+OfficePowerManagerWindow
+DDE Server Window
+Microsoft Word
+CreateTextFile 方法-- VBS用户手册,VBScript特性,VBScript常数,VBScript错误,VBScript事件,VBScript函数,VBScript关键字,VBScript方法,VBScript对象,VBScript运算符,VBScript属性,VBScript语句 - Google Chrome
+Administrator^ - Total Commander 7.55a - NOT REGISTERED
+testing
+CSpNotify Notify Window
+TXMenuWindow
+testing
+通讯日志
+18 - [资金收市处理]
+Hsrcp
+Windows 任务管理器
+OfficePowerManagerWindow
+DDE Server Window
+Microsoft Word
+OfficePowerManagerWindow
+DDE Server Window
+Microsoft Word
+OfficePowerManagerWindow
+DDE Server Window
+Microsoft Word
+OfficePowerManagerWindow
+DDE Server Window
+Microsoft Word
+ISSLDTopLevelWndClass
+MCI command handling window
+GDI+ Window
+TXMenuWindow
+洪林琪（导师）
+MCI command handling window
+TXMenuWindow
+TXMenuWindow
+结算优化二期
+TXMenuWindow
+秦小慧
+产品组：(UF20系列) - Mozilla Firefox
+青铜器RDM研发管理平台 - Mozilla Firefox
+青铜器RDM研发管理平台 - Mozilla Firefox
+TXMenuWindow
+GDI+ Window
+未命名 - 写邮件
+PopListForm
+GDI+ Window
+GDI+ Window
+GDI+ Window
+File patches  
+AP_证券日终(经营管理)_经营其他数据汇总.procedure_design Revision 124414 - TortoiseMerge
+GDI+ Window
+日终开发测试组
+TXMenuWindow
+TXMenuWindow
+日终开发测试组
+TXMenuWindow
+TXMenuWindow
+TXMenuWindow
+日终测试组
+G:\source\start\6.study\0.学习AHK\openwindow.ahk - AutoHotkey v1.1.25.01
+GDI+ Window
+在线帮助
+MCI command handling window
+证券日终(经营管理)
+nsAppShell:EventWindow
+nsAppShell:EventWindow
+nsAppShell:EventWindow
+MyWing
+电脑管家 - ARP防火墙
+{C67C2B77-7073-4b80-88D2-76D328196AA9}
+MCI command handling window
+TGitCacheWindow
+TRAY_WINDOW_{346073DF-4150-4fbf-8509-8F8AC4EB98E9}
+Total Commander
+watchdirwindow
+62558AD3-5226-8788-7545-87B6BA58A32C
+C:\Windows\system32\cmd.exe
+GDI+ Window
+38B6F1A3-93D7-22D1-1A4E-D426C518963B
+MyWing
+DesktopMonitorNotifyWnd_Name
+qqexchangewnd_shortcut_prefix_805104533
+MyWing
+MyWing
+{68415E0B-C49E-49a9-B125-26B8C92311A5}0010
+QWi-Fi
+{ABBCC161-8095-4206-9CC8-BB6C5662AEE3}
+QWi-Fi
+QWi-Fi
+TXMenuWindow
+WndForAero
+LANDESK Endpoint Security
+GDI+ Window
+.NET-BroadcastEventWindow.4.0.0.0.34f5582.0
+MyWing
+E72C6EAA-E6A2-404D-B469-5574831884D1
+P1RIMdsdfEMawND
+im event window
+C777F873-4A84-48DC-9AEE-64B62558A62A
+aPRsIdMEMwND
+C777F873-4A84-48DC-9AEE-64B62558A62A_9120
+807189C9-A8A2-4B2D-BC8C-6D1B33153FEF
+C626F873-5966-9677-EE99-69763329792A
+MyWing
+MyWing
+SQL Server 服务管理器
+Logi_Devio_MainWindow
+LogiOptionsMgr
+LANDesk准入认证客户端 - 无标题
+GDI+ Window
+英特尔(R) USB 3.0 监视器
+display_Monitor
+收到的对象
+LogiOptionsAppBroker
+BluetoothNotificationAreaIconWindowClass
+MS_WebcheckMonitor
+HiddenFaxWindow
+BTTrayApp
+Media Center SSO
+DDE Server Window
+Realtek HD Audio CPL for Vista
+GDI+ Window
+电池指示器
+TSVNCacheWindow
+##0BEF3EC8-5F63-48c7-9448-C32DA8995168##
+##0C39A3BB-E8F3-4493-86F7-E5180F5DFD22##
+TXMenuWindow
+TXMenuWindow
+TXMenuWindow
+CFileQueryMgrImp.Window
+电脑管家 - 网络流量管理
+{C67C2B77-7073-4b80-88D2-76D328196AA9}
+DDE Server Window
+UDisk.WindowName.ShellWindowsMgr
+ApUsbPnP
+C:\Program Files\DellTPad\Apntex.exe
+UDisk.X64.TrayIconMgr
+Elara
+UDiskVirtualWindow
+{39F5E8C5-2BA9-48df-B58E-D30D58E271ED}
+Europa
+ApMsgFwdWindow
+Window_tsvulfw_man_window_0
+GDI+ Window
+HotKey Listener
+The Event Manager - Status
+{B3F3857E-BA7F-4ca3-A990-775DA870AE6A}
+{E3FBD1A9-596C-49c0-834B-6BCDE6E47F31}
+AppBarDetectFullScreen
+TRAYAGENTWINDOW
+{808FEAC0-485B-4b37-897F-4FF44C85D909}
+TRAYWINDOW
+MCI command handling window
+OnKeySvr001_ICBC
+ccSvcHst
+TaskEng - 任务计划程序引擎进程
+Task Host Window
+DWM Notification Window
+igfxtrayWindow
+免费WiFi
+Foxmail
+产品组：(UF20系列) - Mozilla Firefox
+青铜器RDM研发管理平台 - Mozilla Firefox
+补丁42在途紧急修改单测试情况
+秦小慧
+消息
+恒生运维监控管理平台[恒生电子（仅限内部使用）]-监控视图
+恒生运维监控管理平台登录
+恒生运维监控管理平台[恒生电子（仅限内部使用）]-监控视图
+Find & Replace
+PL/SQL Developer - hs_sett@81-data - [SQL Window - SELECT a.*,rowid from hs_data.asset a WHERE a.hkfund_market_value<>0; SELECT a.*,rowid from hs_h ...]
+Crash Recovery
+hs_sett@81-data
+洪林琪（导师）
+结算优化二期
+OfficePowerManagerWindow
+DDE Server Window
+Microsoft Word
+管理员: 命令提示符
+日终测试组
+SQL脚本自动处理
+0.bat
+tmp
+vbsedi - Everything
+.bat - Everything
+Program Manager
+MSCTFIME UI
+Default IME
+HintWnd
+Default IME
+SoWB_UI
+Default IME
+MSCTFIME UI
+Default IME
+Default IME
+Default IME
+Default IME
+Default IME
+Default IME
+MSCTFIME UI
+Default IME
+MSCTFIME UI
+Default IME
+MSCTFIME UI
+Default IME
+Default IME
+SoWB_UI
+Default IME
+MSCTFIME UI
+Default IME
+SoWB_UI
+Default IME
+MSCTFIME UI
+Default IME
+MSCTFIME UI
+Default IME
+MSCTFIME UI
+Default IME
+Default IME
+Default IME
+Default IME
+Default IME
+Default IME
+Default IME
+Default IME
+Default IME
+Default IME
+SoWB_UI
+Default IME
+SoWB_UI
+Default IME
+Default IME
+Default IME
+Default IME
+Default IME
+MSCTFIME UI
+Default IME
+Default IME
+Default IME
+Default IME
+Default IME
+MSCTFIME UI
+Default IME
+Default IME
+Default IME
+MSCTFIME UI
+Default IME
+Default IME
+Default IME
+Default IME
+Default IME
+Default IME
+Default IME
+Default IME
+Default IME
+Default IME
+Default IME
+Default IME
+Default IME
+Default IME
+Default IME
+Default IME
+Default IME
+Default IME
+Default IME
+Default IME
+MSCTFIME UI
+Default IME
+Default IME
+Default IME
+Default IME
+Default IME
+Default IME
+Default IME
+Default IME
+Default IME
+Default IME
+Default IME
+Default IME
+Default IME
+Default IME
+Default IME
+Default IME
+Default IME
+Default IME
+Default IME
+Default IME
+Default IME
+Default IME
+SoWB_UI
+MSCTFIME UI
+Default IME
+Default IME
+MSCTFIME UI
+Default IME
+Default IME
+Default IME
+Default IME
+Default IME
+Default IME
+Default IME
+MSCTFIME UI
+Default IME
+MSCTFIME UI
+Default IME
+MSCTFIME UI
+Default IME
+MSCTFIME UI
+Default IME
+MSCTFIME UI
+Default IME
+MSCTFIME UI
+Default IME
+SoWB_UI
+Default IME
+Default IME
+MSCTFIME UI
+Default IME
+SoWB_UI
+Default IME
+Default IME

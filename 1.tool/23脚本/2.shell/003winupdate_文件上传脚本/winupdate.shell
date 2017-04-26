@@ -1,0 +1,59 @@
+#!/bin/sh
+if [ $# -eq 0 ]; then
+read -p 'please input like a b c 6 7 for runcase:' runcase
+if [ ${#runcase} -lt 1 ]; then
+	runcase="a b c 6 7"
+fi
+else
+runcase=$*
+fi
+for icase in $runcase
+do
+echo "run case $icase:"
+case $icase in
+#a
+	a)
+cd /home
+sh cleanup.sh
+	;;
+#b 
+	b)
+cd /home/uf20/hundsun
+mkdir tmpfolder
+cd tmpfolder
+rm -rf *
+rz
+echo "it may be a bug"
+cp *.so /home/uf20/hundsun/appcom/
+cp *.dll /home/uf20/hundsun/workspace/updatedir/dll   
+cp *.ini *.INI /home/uf20/hundsun/workspace/updatedir/ini
+cp *.sql /home/uf20/hundsun/workspace/C/sql
+	;;
+#
+	c)
+ls|grep Readme|awk -F "-" '{print$2}'>caseno
+##ls|grep -E libs_[la]s.*.so|awk -F "_" '{print$3}'|awk -F "." '{print s_$1.10}'
+ls|grep -E libs_[la]s.*.so|awk -F "_" '{print$3}'|awk -F "." '{print "s_"$1".10"}'>/home/solist
+caseno=`cat caseno|xargs|sed 's/ /|/g'`
+echo caseno
+sh /home/build.sh "$caseno"
+	;;
+#6
+	6)
+##ssh root@192.168.70.106<<EOF
+##cd config
+##sh resart notice
+##EOF
+solist=`cat /home/solist`
+echo $solist
+sh /home/getxmlByssh106.sh "$solist">/home/xmllist
+	;;
+	7)
+for xml in `cat /home/xmllist`
+do
+echo $xml
+        sh /home/startOnePoint "$xml"
+done
+	;;
+esac
+done

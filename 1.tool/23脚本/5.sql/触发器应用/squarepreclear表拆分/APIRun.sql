@@ -1,0 +1,21 @@
+/*
+DECLARE
+BEGIN
+sp_add_triggers_ex('SQUAREPRECLEAR','222640065');
+sp_add_triggers_split('ESQUAREPRECLEAR','222640065');
+END;
+/
+*/
+prompt start add SQUAREPRECLEAR
+DECLARE
+BEGIN
+sp_add_triggers_ex('SQUAREPRECLEAR','');
+sp_add_triggers_split('ESQUAREPRECLEAR','');
+END;
+/
+prompt end add SQUAREPRECLEAR
+
+/*hs_sett.TRSQUAREPRECLEAR
+hs_sett.STESQUAREPRECLEAR*/
+/*TRSQUAREPRECLEAR222640065
+STTCHECKDATE222640065*/

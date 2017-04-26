@@ -1,0 +1,2 @@
+G:\source\start\6.study\0.ѧϰAHK\openwindow.ahk
+notepad

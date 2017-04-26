@@ -1,0 +1,14 @@
+conn hs_sett/hundsun@hs91
+@E:\05-UF20测试工具开发\测试效率提高计划\触发器应用\squarepreclear表拆分\init_frame.sql
+@E:\05-UF20测试工具开发\测试效率提高计划\触发器应用\squarepreclear表拆分\辅助脚本-触发器权限脚本.sql
+@E:\05-UF20测试工具开发\测试效率提高计划\触发器应用\squarepreclear表拆分\sett_TestConfigTablePatch.sql
+@E:\05-UF20测试工具开发\测试效率提高计划\触发器应用\squarepreclear表拆分\sett_data_extable.sql
+@E:\05-UF20测试工具开发\测试效率提高计划\触发器应用\squarepreclear表拆分\sett_TestTablePatch.sql
+@E:\05-UF20测试工具开发\测试效率提高计划\触发器应用\squarepreclear表拆分\sett_data_splittableinfo.sql
+
+@E:\05-UF20测试工具开发\测试效率提高计划\触发器应用\squarepreclear表拆分\sp_add_extables.prc
+--@E:\05-UF20测试工具开发\测试效率提高计划\触发器应用\squarepreclear表拆分\辅助脚本-目标用户执行.sql
+--@E:\05-UF20测试工具开发\测试效率提高计划\触发器应用\squarepreclear表拆分\sp_add_triggers.prc
+@E:\05-UF20测试工具开发\测试效率提高计划\触发器应用\squarepreclear表拆分\sp_add_triggers_ex.prc
+@E:\05-UF20测试工具开发\测试效率提高计划\触发器应用\squarepreclear表拆分\sp_add_triggers_split.prc
+@E:\05-UF20测试工具开发\测试效率提高计划\触发器应用\squarepreclear表拆分\APIRun.sql

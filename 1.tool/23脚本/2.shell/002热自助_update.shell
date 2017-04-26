@@ -1,0 +1,115 @@
+
+if [ $# -eq 0 ]; then
+read -p 'please input program folderpath:' folderpath
+if [ ${#folderpath} -lt 1 ]; then
+	folderpath="/home/Administrator/mydoucment/category/1工作/2恒生测试工作/9学习/9学习/22.热自助"
+fi
+else
+folderpath=$*
+fi
+
+
+mainpath="$folderpath"
+updatefolderpath="$mainpath/updatefolder"
+#cd "$folderpath"
+##start copy
+cd "$updatefolderpath"
+foldername_arr[0]="HSTSR"
+foldername_arr[1]="HSTSR_V2"
+foldername_arr[2]="HSTSR_R"
+foldername_arr[3]="HSTSR_G"
+foldername_arr[4]="HSTSR_G2"
+foldername_arr[5]="HSTSR_GR"
+foldername_arr[6]="HSZDJG"
+foldername_arr[7]="QYB_SK"
+foldername_arr[8]="QYB_SK_G"
+#copy write
+for foldername in ${foldername_arr[*]}
+do
+	#echo "$foldername"
+	if [[ ",QYB_SK,QYB_SK_G,HSTSR_G,HSTSR," =~ ",$foldername," ]]
+	then
+		cp  "write.exe" "$mainpath/$foldername"
+		#echo "cp write.exe $mainpath/$foldername"
+	fi
+	if [[ ",HSTSR_GR,HSTSR_G2,HSTSR_V2,HSTSR_R," =~ ",$foldername," ]]
+	then
+		cp  "WRITEV20.exe" "$mainpath/$foldername"
+		#echo "cp write.exe $mainpath/$foldername"
+	fi
+	if [[ ",HSZDJG," =~ ",$foldername," ]]
+	then
+		cp  "HSZDJG.exe" "$mainpath/$foldername"
+		#echo "cp write.exe $mainpath/$foldername"
+	fi
+done
+#copy exe
+for foldername in ${foldername_arr[*]}
+do
+	#echo "$foldername"
+	cp  "$foldername.exe" "$mainpath/$foldername"
+done
+#copy packinfo
+for foldername in ${foldername_arr[*]}
+do
+	#echo "$foldername"
+	if [[ ",HSTSR_V2,HSTSR_R," =~ ",$foldername," ]]
+	then
+		cp  "PackInfo.HS" "$mainpath/$foldername"
+		#echo "cp write.exe $mainpath/$foldername"
+	fi
+	if [[ ",HSTSR_GR,HSTSR_G2," =~ ",$foldername," ]]
+	then
+		cp  "PackInfo.HSG" "$mainpath/$foldername"
+		#echo "cp write.exe $mainpath/$foldername"
+	fi
+	
+done
+#copy ini
+for foldername in ${foldername_arr[*]}
+do
+	#echo "$foldername"
+	if [[ ",HSTSR_G,HSTSR_G2,HSTSR_GR," =~ ",$foldername," ]]
+	then
+		cp  "UF2.0热自助、行情刷卡标准配置hssvr.ini" "$mainpath/$foldername/hssvr.ini"
+		#echo "cp write.exe $mainpath/$foldername"
+	fi
+	if [[ ",HSTSR,HSTSR_V2,HSTSR_R," =~ ",$foldername," ]]
+	then
+		cp  "热自助、行情刷卡标准配置hssvr.ini" "$mainpath/$foldername/hssvr.ini"
+		#echo "cp write.exe $mainpath/$foldername"
+	fi
+	if [[ ",QYB_SK," =~ ",$foldername," ]]
+	then
+		cp  "企业版新版标准刷卡标准配置文件Hssvr.ini" "$mainpath/$foldername/hssvr.ini"
+		#echo "cp write.exe $mainpath/$foldername"
+	fi
+	if [[ ",QYB_SK_G," =~ ",$foldername," ]]
+	then
+		cp  "06版新版标准刷卡标准配置文件Hssvr.ini" "$mainpath/$foldername/hssvr.ini"
+		#echo "cp write.exe $mainpath/$foldername"
+	fi
+	if [[ ",HSZDJG," =~ ",$foldername," ]]
+	then
+		cp  "参考ZDJG.ini" "$mainpath/$foldername/zdjg.ini"
+		#echo "cp write.exe $mainpath/$foldername"
+	fi
+done
+#copy dat and other
+for foldername in ${foldername_arr[*]}
+do
+	#echo "$foldername"
+	cp  -rp ./other/* "$mainpath/$foldername"
+done
+#modify MAC and port
+ for ini in `ls *.ini`
+do
+	sed -i "s/^svraddress1.*=.*/svraddress1=11111111.005056924ef3/g" "$ini"
+	sed -i "s/^targetsocketnumber.*=.*/targetsocketnumber=8003/g" "$ini"
+done
+
+#ZDJG
+sed -i "s/^server_address.*=.*/svraddress1=11111111.005056924ef3/g" "参考ZDJG.INI"
+sed -i "s/^port.*=.*/targetsocketnumber=8003/g" "参考ZDJG.INI"
+
+#can't compatible run write.exe

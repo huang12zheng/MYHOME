@@ -1,0 +1,331 @@
+/****************************************************************************************************/
+/* 源程序名称:     sett_TestTablePatch.sql                                                             */
+/* 软件著作权:     恒生电子股份有限公司                                                             */
+/* 系统名称:       经纪业务运营平台V2.0                                                             */
+/* 模块名称:       hs_sett清算表结构拆分                                                           */
+/* 功能说明:       hs_sett清算表结构拆分升级脚本                                                   */
+/* 作者：          经纪业务运营平台V2.0测试组                                                       */
+/* 审核:                                                                                            */
+/* 更改及测试记录: 经纪业务运营平台V2.0测试组   2016/11/14   创建                                   */
+/* 注意:           为配合加密，批量注释时请在每行前加--                                             */
+/****************************************************************************************************/
+-- 总修改记录
+-- V0.0.0.3  20161122 黄  政 分裂表添加字段fund_account
+-- V0.0.0.2  20161115 黄  政 表[squarepreclear] 表结构重构[Esquarepreclear]
+-- V0.0.0.1  20161114 黄  政 表[squarepreclear] 表结构拆分
+
+/*
+prompt
+prompt 检查表 ESQUAREPRECLEAR 扩展清算表 重建......
+declare
+  v_cnt integer;
+  v_sourcetbname varchar2(50);
+begin
+  v_sourcetbname:=upper('SQUAREPRECLEAR');
+  SELECT COUNT(*) INTO v_cnt FROM User_Tables t WHERE t.TABLE_NAME='E' ||v_sourcetbname;
+  IF v_cnt >=1 THEN
+     execute IMMEDIATE 'drop TABLE E'||v_sourcetbname;
+  END IF;
+  execute immediate 'create table E'|| v_sourcetbname ||' as select * from ' || v_sourcetbname || ' where 1=0';
+  execute immediate 'alter table E'|| v_sourcetbname ||' add (tablename VARCHAR2(18),market_amount number(19,2),enable_amount number(19,2),market_balance number(19,2),enable_balance number(19,2))';	
+end;
+/
+*/
+prompt
+prompt 检查表 EXTABLE 表扩展配置表 重建......
+declare
+  v_cnt integer;
+  v_sourcetbname varchar2(50);
+BEGIN
+  sp_add_extables('SQUAREPRECLEAR','');
+END;
+/
+
+prompt
+prompt 检查表 tcheckuser 订单者信息表 是否存在，不存在则创建......
+declare
+  v_rowcount integer;
+begin
+  select count(1) into v_rowcount from all_tables where table_name = upper('tcheckuser');
+  if v_rowcount > 0 then
+	execute IMMEDIATE 'drop TABLE tcheckuser';
+  end if;
+    /*'yyyymmdd' , ' '*/
+	execute immediate 'CREATE TABLE hs_sett.tcheckuser(
+	/*订单者信息表*/
+	  init_date                 number(10,0)    DEFAULT to_number(to_char(sysdate,''yyyymmdd'')) NOT NULL,
+	  serial_no                 number(10,0)    DEFAULT 0            NOT NULL,
+	  tablename                 varchar2(18)    DEFAULT '' ''          NOT NULL,  
+	  branch_no                 number(10,0)    DEFAULT 0            NOT NULL,
+	  fund_account              varchar2(18)    DEFAULT '' ''          NOT NULL,  
+	  exchange_type             varchar2(4)     DEFAULT '' ''          NOT NULL,
+	  stock_account             varchar2(20)    DEFAULT '' ''          NOT NULL,  
+	  report_account            varchar2(20)    DEFAULT '' ''          NOT NULL,
+	  money_type                varchar2(3)     DEFAULT '' ''          NOT NULL,  
+	  default_branch            number(10,0)    DEFAULT 0            NOT NULL,
+	  default_account           varchar2(18)    DEFAULT '' ''          NOT NULL
+	)';
+	execute immediate 'CREATE UNIQUE INDEX idx_tcheckuser ON hs_sett.tcheckuser(serial_no,init_date) TABLESPACE HS_SETT_IDX ';
+    /*
+	DELETE hs_asset.hsobjects WHERE object_name = 'tcheckuser' and object_type = 'U';
+    INSERT INTO hs_asset.hsobjects (object_id, object_name, own_base, object_type, master_ver, second_ver, third_ver, build_ver)
+      values(200110, 'tcheckuser', 'HS_ASSET_DATA', 'U', '8', '0', '2', '0');
+	*/
+    commit;
+
+end;
+/
+prompt
+prompt 检查表 tcheckentrust 订单品信息表 是否存在，不存在则创建......
+declare
+  v_rowcount integer;
+begin
+  select count(1) into v_rowcount from user_tables where table_name = upper('tcheckentrust');
+  if v_rowcount > 0 then
+	execute IMMEDIATE 'drop TABLE tcheckentrust';
+  end if;
+    execute immediate 'CREATE TABLE hs_sett.tcheckentrust(    
+	/*订单品信息表*/
+	  init_date                 number(10,0)    DEFAULT to_number(to_char(sysdate,''yyyymmdd'')) NOT NULL,
+	  serial_no                 number(10,0)    DEFAULT 0            NOT NULL,
+	  tablename                 varchar2(18)    DEFAULT '' ''          NOT NULL,  
+	  fund_account              varchar2(18)    DEFAULT '' ''          NOT NULL,
+	  business_type             char(1)         DEFAULT '' ''          NOT NULL,
+	  business_flag             number(10,0)    DEFAULT 0            NOT NULL,
+	  remark                    varchar2(2000)  DEFAULT '' ''          NOT NULL,
+	  file_kind                 char(1)         DEFAULT '' ''          NOT NULL,
+	  file_type                 number(10,0)    DEFAULT 0            NOT NULL,
+	  exchange_type             varchar2(4)     DEFAULT '' ''          NOT NULL,
+	  stock_code                varchar2(6)     DEFAULT '' ''          NOT NULL,
+	  frozen_code               varchar2(6)     DEFAULT '' ''          NOT NULL,
+	  stock_type                varchar2(4)     DEFAULT '' ''          NOT NULL,
+	  stock_name                varchar2(32)    DEFAULT '' ''          NOT NULL,
+	  entrust_bs                char(1)         DEFAULT '' ''          NOT NULL,
+	  entrust_way               char(1)         DEFAULT '' ''          NOT NULL
+	)';
+	execute immediate 'CREATE UNIQUE INDEX idx_tcheckentrust ON hs_sett.tcheckentrust(serial_no,init_date) TABLESPACE HS_SETT_IDX ';
+    commit;
+
+end;
+/
+prompt
+prompt 检查表 tcheckmatch 匹配信息表 是否存在，不存在则创建......
+declare
+  v_rowcount integer;
+begin
+  select count(1) into v_rowcount from user_tables where table_name = upper('tcheckmatch');
+  if v_rowcount > 0 then
+	execute IMMEDIATE 'drop TABLE tcheckmatch';
+  end if;
+    execute immediate 'CREATE TABLE hs_sett.tcheckmatch(  
+	/*匹配信息表*/  
+	  init_date                 number(10,0)    DEFAULT to_number(to_char(sysdate,''yyyymmdd'')) NOT NULL,
+	  serial_no                 number(10,0)    DEFAULT 0            NOT NULL,  
+	  tablename                 varchar2(18)    DEFAULT '' ''          NOT NULL,  
+	  fund_account              varchar2(18)    DEFAULT '' ''          NOT NULL,
+	  match_status              char(1)         DEFAULT '' ''          NOT NULL,
+	  entrust_no                number(10,0)    DEFAULT 0            NOT NULL,
+	  business_no               number(10,0)    DEFAULT 0            NOT NULL,
+	  business_id               varchar2(32)    DEFAULT '' ''          NOT NULL,
+	  report_no                 number(10,0)    DEFAULT 0            NOT NULL,
+	  order_id                  varchar2(10)    DEFAULT '' ''          NOT NULL,
+	  business_price            number(18,3)    DEFAULT 0.0          NOT NULL,
+	  business_balance          number(19,2)    DEFAULT 0.0          NOT NULL,
+	  business_amount           number(19,2)    DEFAULT 0.0          NOT NULL
+	)';
+	execute immediate 'CREATE UNIQUE INDEX idx_tcheckmatch ON hs_sett.tcheckmatch(serial_no,init_date) TABLESPACE HS_SETT_IDX ';
+    commit;
+
+end;
+/
+prompt
+prompt 检查表 tcheckfare 二级费用信息表 是否存在，不存在则创建......
+declare
+  v_rowcount integer;
+begin
+  select count(1) into v_rowcount from user_tables where table_name = upper('tcheckfare');
+  if v_rowcount > 0 then
+	execute IMMEDIATE 'drop TABLE tcheckfare';
+  end if;
+    execute immediate 'CREATE TABLE hs_sett.tcheckfare( 
+	/*二级费用信息表*/   
+	  init_date                 number(10,0)    DEFAULT to_number(to_char(sysdate,''yyyymmdd'')) NOT NULL,
+	  serial_no                 number(10,0)    DEFAULT 0            NOT NULL,      
+	  tablename                 varchar2(18)    DEFAULT '' ''          NOT NULL,  
+	  fund_account              varchar2(18)    DEFAULT '' ''          NOT NULL,
+	  fare_kind_str             varchar2(255)   DEFAULT '' ''          NOT NULL,
+	  fare_kind                 number(10,0)    DEFAULT 0            NOT NULL,
+	  fare0                     number(19,2)    DEFAULT 0.0          NOT NULL,
+	  fare1                     number(19,2)    DEFAULT 0.0          NOT NULL,
+	  fare2                     number(19,2)    DEFAULT 0.0          NOT NULL,
+	  fare3                     number(19,2)    DEFAULT 0.0          NOT NULL,
+	  farex                     number(19,2)    DEFAULT 0.0          NOT NULL,
+	  fare_remark               varchar2(2000)  DEFAULT '' ''          NOT NULL,
+	  room_code                 number(10,0)    DEFAULT 0            NOT NULL,
+	  seat_no                   varchar2(8)     DEFAULT '' ''          NOT NULL
+	)';
+	execute immediate 'CREATE UNIQUE INDEX idx_tcheckfare ON hs_sett.tcheckfare(serial_no,init_date) TABLESPACE HS_SETT_IDX ';
+    commit;
+
+end;
+/
+
+
+
+
+prompt
+prompt 检查表 tcheckexchangefare 一级费用信息表 是否存在，不存在则创建......
+declare
+  v_rowcount integer;
+begin
+  select count(1) into v_rowcount from user_tables where table_name = upper('tcheckexchangefare');
+  if v_rowcount > 0 then
+	execute IMMEDIATE 'drop TABLE tcheckexchangefare';
+  end if;
+    execute immediate 'CREATE TABLE hs_sett.tcheckexchangefare(    
+	/*一级费用信息表*/
+	  init_date                 number(10,0)    DEFAULT to_number(to_char(sysdate,''yyyymmdd'')) NOT NULL,
+	  serial_no                 number(10,0)    DEFAULT 0            NOT NULL,      
+	  tablename                 varchar2(18)    DEFAULT '' ''          NOT NULL,  
+	  fund_account              varchar2(18)    DEFAULT '' ''          NOT NULL,
+	  fare_kind_str             varchar2(255)   DEFAULT '' ''          NOT NULL,
+	  fare_kind                 number(10,0)    DEFAULT 0            NOT NULL,
+	  standard_fare0            number(19,2)    DEFAULT 0.0          NOT NULL,
+	  exchange_fare0            number(19,2)    DEFAULT 0.0          NOT NULL,
+	  exchange_fare1            number(19,2)    DEFAULT 0.0          NOT NULL,
+	  exchange_fare2            number(19,2)    DEFAULT 0.0          NOT NULL,
+	  exchange_fare3            number(19,2)    DEFAULT 0.0          NOT NULL,
+	  exchange_fare4            number(19,2)    DEFAULT 0.0          NOT NULL,
+	  exchange_fare5            number(19,2)    DEFAULT 0.0          NOT NULL,
+	  exchange_fare6            number(19,2)    DEFAULT 0.0          NOT NULL,
+	  exchange_farex            number(19,2)    DEFAULT 0.0          NOT NULL,
+	  exchange_fare             number(19,2)    DEFAULT 0.0          NOT NULL
+	)';
+	execute immediate 'CREATE UNIQUE INDEX idx_tcheckexchangefare ON hs_sett.tcheckexchangefare(serial_no,init_date) TABLESPACE HS_SETT_IDX ';
+    commit;
+
+end;
+/
+
+prompt
+prompt 检查表 tcheckdate 日期信息表 是否存在，不存在则创建......
+declare
+  v_rowcount integer;
+begin
+  select count(1) into v_rowcount from user_tables where table_name = upper('tcheckdate');
+  if v_rowcount > 0 then
+	execute IMMEDIATE 'drop TABLE tcheckdate';
+  end if;
+    execute immediate 'CREATE TABLE hs_sett.tcheckdate(    
+	/*日期信息表*/
+	  init_date                 number(10,0)    DEFAULT to_number(to_char(sysdate,''yyyymmdd'')) NOT NULL,
+	  serial_no                 number(10,0)    DEFAULT 0            NOT NULL,    
+	  tablename                 varchar2(18)    DEFAULT '' ''          NOT NULL,  
+	  fund_account              varchar2(18)    DEFAULT '' ''          NOT NULL,
+	  entrust_date              number(10,0)    DEFAULT to_number(to_char(sysdate,''yyyymmdd'')) NOT NULL,
+	  fund_date_back            number(10,0)    DEFAULT to_number(to_char(sysdate,''yyyymmdd'')) NOT NULL,
+	  stock_date_back           number(10,0)    DEFAULT to_number(to_char(sysdate,''yyyymmdd'')) NOT NULL
+	)';
+	execute immediate 'CREATE UNIQUE INDEX idx_tcheckdate ON hs_sett.tcheckdate(serial_no,init_date) TABLESPACE HS_SETT_IDX ';
+    commit;
+
+end;
+/
+
+prompt
+prompt 检查表 tcheckfs 资金股份变动信息表 是否存在，不存在则创建......
+declare
+  v_rowcount integer;
+begin
+  select count(1) into v_rowcount from user_tables where table_name = upper('tcheckfs');
+ if v_rowcount > 0 then
+	execute IMMEDIATE 'drop TABLE tcheckfs';
+  end if;
+    execute immediate 'CREATE TABLE hs_sett.tcheckfs( 
+	/*资金股份变动信息表*/   
+	  init_date                 number(10,0)    DEFAULT to_number(to_char(sysdate,''yyyymmdd'')) NOT NULL,
+	  serial_no                 number(10,0)    DEFAULT 0            NOT NULL,    
+	  tablename                 varchar2(18)    DEFAULT '' ''          NOT NULL,  
+	  fund_account              varchar2(18)    DEFAULT '' ''          NOT NULL,
+	  occur_amount              number(19,2)    DEFAULT 0.0          NOT NULL,
+	  frozen_amount             number(19,2)    DEFAULT 0.0          NOT NULL,
+	  unfrozen_amount           number(19,2)    DEFAULT 0.0          NOT NULL,
+	  correct_amount            number(19,2)    DEFAULT 0.0          NOT NULL,
+	  real_amount               number(19,2)    DEFAULT 0.0          NOT NULL,
+	  clear_balance             number(19,2)    DEFAULT 0.0          NOT NULL,
+	  frozen_balance            number(19,2)    DEFAULT 0.0          NOT NULL,
+	  unfrozen_balance          number(19,2)    DEFAULT 0.0          NOT NULL,
+	  correct_balance           number(19,2)    DEFAULT 0.0          NOT NULL,
+	  real_balance              number(19,2)    DEFAULT 0.0          NOT NULL,
+	  post_balance              number(19,2)    DEFAULT 0.0          NOT NULL,
+	  post_amount               number(19,2)    DEFAULT 0.0          NOT NULL
+	)';
+	execute immediate 'CREATE UNIQUE INDEX idx_tcheckfs ON hs_sett.tcheckfs(serial_no,init_date) TABLESPACE HS_SETT_IDX ';
+    commit;
+
+end;
+/
+
+prompt
+prompt 检查表 tcheckfsex 可能市值信息表 是否存在，不存在则创建......
+declare
+  v_rowcount integer;
+begin
+  select count(1) into v_rowcount from user_tables where table_name = upper('tcheckfsex');
+  if v_rowcount > 0 then
+	execute IMMEDIATE 'drop TABLE tcheckfsex';
+  end if;
+    execute immediate 'CREATE TABLE hs_sett.tcheckfsex(
+	/*可能市值信息表*/    
+	  init_date                 number(10,0)    DEFAULT to_number(to_char(sysdate,''yyyymmdd'')) NOT NULL,
+	  serial_no                 number(10,0)    DEFAULT 0            NOT NULL,    
+	  tablename                 varchar2(18)    DEFAULT '' ''          NOT NULL,  
+	  fund_account              varchar2(18)    DEFAULT '' ''          NOT NULL,
+	  market_amount             number(19,2)    DEFAULT 0.0          NOT NULL,
+	  enable_amount             number(19,2)    DEFAULT 0.0          NOT NULL,
+	  real_amount               number(19,2)    DEFAULT 0.0          NOT NULL,
+	  market_balance            number(19,2)    DEFAULT 0.0          NOT NULL,
+	  enable_balance            number(19,2)    DEFAULT 0.0          NOT NULL,  
+	  real_balance              number(19,2)    DEFAULT 0.0          NOT NULL,
+	  post_balance              number(19,2)    DEFAULT 0.0          NOT NULL,
+	  post_amount               number(19,2)    DEFAULT 0.0          NOT NULL
+	)';
+	execute immediate 'CREATE UNIQUE INDEX idx_tcheckfsex ON hs_sett.tcheckfsex(serial_no,init_date) TABLESPACE HS_SETT_IDX ';
+    commit;
+
+end;
+/
+
+prompt
+prompt 检查表 tcheckother 其他信息表 是否存在，不存在则创建......
+declare
+  v_rowcount integer;
+begin
+  select count(1) into v_rowcount from user_tables where table_name = upper('tcheckother');
+  if v_rowcount > 0 then
+	execute IMMEDIATE 'drop TABLE tcheckother';
+  end if;
+    execute immediate 'CREATE TABLE hs_sett.tcheckother(    
+	/*其他信息表*/
+	  init_date                 number(10,0)    DEFAULT to_number(to_char(sysdate,''yyyymmdd'')) NOT NULL,
+	  serial_no                 number(10,0)    DEFAULT 0            NOT NULL,    
+	  tablename                 varchar2(18)    DEFAULT '' ''          NOT NULL,        
+	  fund_account              varchar2(18)    DEFAULT '' ''          NOT NULL,
+	  rebate_balance            number(19,2)    DEFAULT 0.0          NOT NULL,
+	  brokerage                 number(19,2)    DEFAULT 0.0          NOT NULL,
+	  entrust_amount            number(19,2)    DEFAULT 0.0          NOT NULL,
+	  uncome_buy_amount         number(19,2)    DEFAULT 0.0          NOT NULL,
+	  uncome_sell_amount        number(19,2)    DEFAULT 0.0          NOT NULL,
+	  uncome_buy_balance        number(19,2)    DEFAULT 0.0          NOT NULL,
+	  uncome_sell_balance       number(19,2)    DEFAULT 0.0          NOT NULL,
+	  stock_interest            number(15,8)    DEFAULT 0.0          NOT NULL,
+	  stock_interestx           number(19,2)    DEFAULT 0.0          NOT NULL,
+	  profit                    number(19,2)    DEFAULT 0.0          NOT NULL,
+	  set_seat_no               varchar2(8)     DEFAULT '' ''          NOT NULL,
+	  real_status               char(1)         DEFAULT '' ''          NOT NULL
+	)';
+	execute immediate 'CREATE UNIQUE INDEX idx_tcheckother ON hs_sett.tcheckother(serial_no,init_date) TABLESPACE HS_SETT_IDX ';
+    commit;
+
+end;
+/

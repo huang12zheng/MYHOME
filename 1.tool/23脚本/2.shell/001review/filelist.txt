@@ -1,0 +1,5 @@
+C:\cygwin\home\Administrator\mydoucment\2工具\06编程工具\python\python学习笔记.txt
+C:\cygwin\home\Administrator\mydoucment\2工具\23脚本\0shell\3内容复习\shell\key1_sehll.txt
+C:\cygwin\home\Administrator\mydoucment\2工具\23脚本\0shell\3内容复习\win10\shortcuts.txt
+C:\cygwin\home\Administrator\mydoucment\4心有所感\myworkspace\testworkspace\20161014_1\case\00常用路径.txt
+C:\cygwin\home\Administrator\mydoucment\2工具\14系统工具\virtualbox命令学习.txt
