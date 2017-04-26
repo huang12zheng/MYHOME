@@ -1,5 +1,5 @@
 'http://www.51testing.com/html/44/316844-3546254.html
-'schtasks /create /tn "RunWhenStart" /tr 004RunWhenStart.vbs /sc  ONLOGON
+'schtasks /create /tn "RunWhenStart" /tr %MYSCRIPTHOME%1.vbs\004RunWhenStart.vbs /sc  ONLOGON
 '::chcp 437
 '::005RunWhenStart.bat
 dim fso,ws,pt,msg 
@@ -16,8 +16,9 @@ vbsname=left(vbsname,len(vbsname)-4)
 usr=fso.GetFile(Wscript.ScriptFullName).ParentFolder.Path&"\"&vbsname&"_usr\"
 
 'set StrLines=FSO.opentextfile(usr&"RunList.txt",2,true) 
-msgbox usr&"RunList.txt"
+'msgbox usr&"RunList.txt"
 for Each strline in split(FSO.opentextfile(usr&"RunList.txt").readall,vbCrLf)
+	'msgbox strline
 	ws.run strline
 next
  'file.copy pt 

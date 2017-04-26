@@ -1,2 +1,4 @@
-G:\source\start\6.study\0.ѧϰAHK\openwindow.ahk
-notepad
+%MYSCRIPTHOME%4.ahk\openwindow.ahk
+%MYSCRIPTHOME%4.ahk\programlink.ahk
+%MYSCRIPTHOME%4.ahk\runinit.ahk
+%MYSCRIPTHOME%4.ahk\test.ahk
