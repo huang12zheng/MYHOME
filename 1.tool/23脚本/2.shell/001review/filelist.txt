@@ -3,3 +3,4 @@ C:\cygwin\home\Administrator\mydoucment\2工具\23脚本\0shell\3内容复习\shell\key1
 C:\cygwin\home\Administrator\mydoucment\2工具\23脚本\0shell\3内容复习\win10\shortcuts.txt
 C:\cygwin\home\Administrator\mydoucment\4心有所感\myworkspace\testworkspace\20161014_1\case\00常用路径.txt
 C:\cygwin\home\Administrator\mydoucment\2工具\14系统工具\virtualbox命令学习.txt
+G:\MYHOME\1.tool\23脚本\1.vbs\别人的常用脚本.vbs

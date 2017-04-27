@@ -1,0 +1,41 @@
+print:
+	print(100+200)
+	print('1','2')
+	print('Hello,', name)
+input:
+	name = input()
+	name = input('please enter your name:')
+if:
+	if a>=0:
+		print(a)
+	else:
+		print(-a)
+特殊字符:
+	"I'm OK"
+	'I\'m \"OK\"!'
+		>>>print('''line1
+		... line2
+		... line3''')
+		
+		print('''line1
+		line2
+		line3''')
+	None!=0
+	ord('A')
+	ord('中')
+	chr(66)
+	chr(25991)
+	'\u4e2d\u6587'
+编码:
+	ord('A')
+	ord('中')
+	chr(66)
+	chr(25991)
+	'\u4e2d\u6587'
+	编码传递: x = b'ABC'	字节为单位	但bytes的每个字符都只占用一个字节
+	'ABC'.encode('ascii')
+	'中文'.encode('utf-8')=b'\xe4\xb8\xad\xe6\x96\x87'
+	 b'ABC'.decode('ascii')
+	 b'\xe4\xb8\xad\xe6\x96\x87'.decode('utf-8')
+	 len()函数计算的是str的字符数，如果换成bytes，len()函数就计算字节数
+	 while 比较的是字符串!

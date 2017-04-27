@@ -1,0 +1,32 @@
+1.VBoxManage list vms
+hzgood@hzgood-Inspiron-N4050:~$ VBoxManage list vms
+"andriod" {47aba954-f0e3-477d-9d7b-9b0df2d57eed}
+"ubs16.04" {267fc5b0-bca4-43c7-ae17-7d72d2aea732}
+"win71" {cfe6103d-d2fd-4ff6-8763-b9b1b5a7ef4d}
+"xp1" {b129f9ef-e72c-48fe-841e-291c83d930bc}
+#后面括号内部的是它的UUID
+
+VBoxManage list [--long|-l] vms|runningvms|ostypes|hostdvds|hostfloppies|intnets|bridgedifs|hostonlyifs|natnets|dhcpservers|hostinfo|hostcpuids|hddbackends|hdds|dvds|floppies|usbhost|usbfilters|systemproperties|extpacks|groups|webcams|screenshotformats
+
+2.VBoxManage startvm uuid>|name... [--type gui|sdl|headless]
+其中
+gui就是图形化界面，这和我们平时启动的方式一样
+sdl也是图形化界面，但是少掉了部分功能，比如没有菜单等，一般用于调试过程
+headless是在后台运行，并且默认开启vrdp服务，可以通过远程桌面工具来访问。
+关于这三种启动方式的介绍可以看手册中的这一篇。所以一般我们使用gui或者headless类型启动
+3.
+VBoxManage list runningvms # 列出运行中的虚拟机
+VBoxManage controlvm XP acpipowerbutton # 关闭虚拟机，等价于点击系统关闭按钮，正常关机
+VBoxManage controlvm XP poweroff # 关闭虚拟机，等价于直接关闭电源，非正常关机
+VBoxManage controlvm XP pause # 暂停虚拟机的运行
+VBoxManage controlvm XP resume # 恢复暂停的虚拟机
+VBoxManage controlvm XP savestate # 保存当前虚拟机的运行状态
+
+-s, -startvm, –startvm Start given VM (required argument)
+-n, –vnc Enable the built in VNC server
+-m, –vncport TCP port number to use for the VNC server
+-o, –vncpass Set the VNC server password
+VBoxHeadless -n -s winxp    (VBoxHeadless -s winxp --vnc --vncport 5900 --vncpass password)
+用Vinagre连接到 127.0.0.1:0 
+http://www.chinastor.com/a/linux/ubuntu/0P9124M2015.html	Virtualbox虚拟Ubuntu共享文件夹设置的方法及命令
+VBoxManage sharedfolder add "VM name" --name "sharename" --hostpath "C:\test"
