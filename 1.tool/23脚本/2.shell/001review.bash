@@ -1,5 +1,5 @@
 #curpath=$(cd "$(dirname "$0")"; pwd)
-curpath='I:\MYHOME\1.tool\23脚本\2.shell'
+curpath='I:\MYHOME\1.tool\23鑴氭湰\2.shell'
 declare -A dictPath
 for item in `cat "$curpath/review/filelist.txt"`
 {
@@ -39,7 +39,7 @@ if [ ! -f "$fpath" ]; then
 	echo "file is not exist"
 	exit 1
 fi
-#env="`cygpath -p 'C:\cygwin\home\Administrator\mydoucment\2工具\23脚本\0shell\3内容复习'`"
+#env="`cygpath -p 'C:\cygwin\home\Administrator\mydoucment\2宸ュ叿\23鑴氭湰\0shell\3鍐呭澶嶄範'`"
 #lines=`wc -l "%fpath"`
 run_flag="Y"
 echo "do you need find another?n is game over."
