@@ -1,5 +1,5 @@
 ﻿;;打开窗体
-^!A::run "%MYHOME%1.tool\23脚本\4.ahk"
+!A::run "%MYHOME%1.tool\23脚本\4.ahk"
 ^!S::run "C:\Users\80510\AppData\Local\lxss\home\hzgood\workspace"
 ^!2::
 	run "G:\source\start\9CommonFolder\Trade"
@@ -12,7 +12,8 @@ return
 	run "G:\source\start\9CommonFolder"
 return
 ;;!R::run *RunAs I:\win10初始化\0.初始软件集\readme.bat
-!R::run G:\MYHOME\1.tool\23脚本\1.vbs\SetEnvBatch.vbs
+;;!R::run G:\MYHOME\1.tool\23脚本\1.vbs
+!R::run bash G:\MYHOME\1.tool\23脚本\2.shell\004test.bash
 ;;打开网址
 ^!T::
 	run,http://ts.hundsun.com
@@ -50,4 +51,4 @@ return
 return
 ::MSP::%MYSCRIPTPATH%
 ::MSH::%MYSCRIPTHOME%
-::H::%MYHOME%
+::HOME::%MYHOME%
