@@ -1,0 +1,4 @@
+Windows Registry Editor Version 5.00
+[HKEY_CLASSES_ROOT\*\Shell\NotePad++]
+[HKEY_CLASSES_ROOT\*\Shell\NotePad++\Command]
+@="\"C:\\win10初始化\\0.初始软件集\\notepad++\\npp.7.3.3.bin.x64\\notepad++.exe\" \"%1\""
