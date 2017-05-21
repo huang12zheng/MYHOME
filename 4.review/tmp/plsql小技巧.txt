@@ -1,0 +1,125 @@
+
+1.记住登陆密码
+ 
+为了工作方便希望PL/SQL Developer记住登录Oracle的用户名和密码；设置方法：菜单Tools --> Preferences --> Oracle --> Logon History --> Store With Password， “Store history”是默认勾选的，勾上“Storewith password”即可，重新登录在输入一次密码则记住了;
+ 
+2.登录后默认自动选中My Objects  
+ 
+默认情况下，PLSQL Developer登录后，Brower里会选择All objects，如果你登录的用户是dba，要展开tables目录，正常情况都需要Wait几秒钟，而选择My Objects后响应速率则是以毫秒计算的。
+ 
+设置方法：
+ 
+Tools菜单 --> BrowerFilters，会打开Brower Folders的定单窗口，把“My Objects”设为默认即可。
+ 
+Tools菜单－－Brower Folders，中把你经常点的几个目录（比如：Tables Views Seq Functions Procedures）移得靠上一点，并加上颜色区分，这样你的平均寻表时间会大大缩短。
+ 
+ 
+ 
+3.双击即显示表数据
+ 
+鼠标双击表或者视图时的默认响应实在让我感到失望，因为我最关心的是表结构和数据，但是双击后这两件事情都没有发生，也许默认响应是高手们需要的，但对我来说查看数据和表结构是最主要的，其他的我不关心。不过好的是这是可以设置的，你可以给鼠标双击和拖放绑定需要的事件，比如：双击编辑数据，拖放显示表结构，Yeah！
+设置方法：菜单Tools --> Preferences --> Browser，在右侧，为不同的Object Type绑定双击和拖放操作。
+ 
+4.关键字自动大写
+ 
+Tools->Preferences->Editor，将Keywordcase选择Uppercase。这样在窗口中输入sql语句时，关键字会自动大写，而其它都是小写。这样阅读代码比较容易，且保持良好得编码风格，同理，在Tools->Preferences->Code Assistant里可以设置数据库对象的大写、小写，首字母大写等。
+ 
+ 
+ 
+5.查看执行计划
+ 
+选中需要分析的SQL语句，然后点击工具栏的Explain plan按钮（即执行计划），或者直接按F5；这个主要用于分析SQL语句执行效率，分析表的结构，便于为sql调优提供直观依据。
+ 
+ 
+ 
+6.使用自定义快捷键
+ 
+PLSQL Developer里预留了很多键让用户自定义，这是件很Hight的事情。不像霸道的Word，基本上所有的键都已预定义了功能，修改起来很是头疼。 通常情况下，打开PLSQL Developer后，最经常干的事就是打开SQL Window和Command Window，就给这两个操作定义了快捷键，ALT+S和ALT+ C，这样拿鼠标点三下的事情只需要按一下键。
+ 
+设置方法：菜单Tools --> Preferences --> Key Configuration
+ 
+7.自动替换
+PL/SQL Developer也可以像其他IDE那样使用自定义快捷键提高编写代码效率，节省时间。
+ 
+如我们平时在sql窗口中使用最频繁的 select * from 我们就可以设置一个快捷键来简化select * from的输入。
+ 
+    1).建立一个文本文件shortcuts.txt，并写入如下内容：
+ 
+         s = SELECT * FROM
+ 
+         sc = SELECT count(*) FROM
+ 
+         复制代码另存到PL/SQL Developer的安装路径下的~/PlugIns目录下
+ 
+    2).Tools-->Preferences-->UserInterface-->Editor-->AutoReplace，选中Enable复选框，然后浏览文件选中之前创建的shortcuts.txt，点击Apply
+ 
+    3).重启PL/SQL Developer，在sql窗口中输入s+空格，sc+空格做测试
+ 
+ 
+ 
+8.执行单条SQL语句（根据光标位置自动选择语句）
+ 
+tools->Preferences-->Window types ，勾上“AutoSelectStatement”。在使用PL/SQL Developer的SQL Window时，按F8键，PL/SQL Developer默认是执行该窗口的所有SQL语句，需要设置为鼠标所在的那条SQL语句，即执行当前SQL语句。
+ 
+设置方法：Preferences --> Window Types --> SQL Window，将AutoSelect statement选中即可。注意，每条语句后面要加分号。
+ 
+ 
+9.PL/SQLBeautifier（PL/SQL 美化器）
+ 
+PLD 6以上版本有对DML代码格式化的功能。在SQLWindow或Program Window中选中部分代码（如果不选则对整个窗口的代码操作），在菜单中选Edit -> PL/SQL Beautifier，得到格式化的代码。对于非法的DML语句或DDL语句，PLD将会在下方状态栏提示PL/SQLBeautifier could not parse text。在缺省的状态下，PLD会把DML语句的每一个字段都排在单独的一行，这样不方便查看。在菜单中选Edit à PL/SQL Beautifier Options，进入Preferences窗口，选择Edit，进入配置文件编辑界面：在标签栏选DML，在窗口中部的Select, Insert和Update组框中把Fit选中，然后点击Save，把配置文件保存到PLD的安装目录下，点击Close关闭。在Rules file中输入配置文件所在位置，点击OK，完成配置文件切换。这时再对代码进行格式化，就可以使每一个字段尽可能的在一行上了。
+ 
+   在使用PL/SQL Developer的SQL Window时，有时候输入的SQL语句太长或太乱，希望能用比较通用的写法格式话一下，这样看起来会好看些，也好分析； 
+使用方法：选中需要格式化的SQL语句，然后点击工具栏的PL/SQL beautifier按钮即可.
+ 
+ 
+10.右键菜单
+ 
+在PL/SQL Developer（下面简称PLD）中的每一个文本编辑窗口，如SQL Window，Command Window和Porgram Window，右键点击某个对象名称，会弹出一个包含操作对象命令的菜单，我们这里称之为右键菜单。对象类型可以是表，视图，同义词，存储过程和函数等。根据对象类型的不同，弹出的菜单也有区别。表和视图有View, Edit, Rename, Drop, Query data 和Edit data等功能。View和Edit分别是查看和修改表的结构信息，如字段，主键，索引和约束等。Query data相当于新打开一个窗口，并执行select * from 表。Edit data相当于新打开一个窗口，并执行select * from 表 for update。存储过程和函数有Test功能，选中后可以进入调试状态。有时由于PLD识别错误，右键点击对象并不能出来正确的菜单，可以在对象所在的DDL或DML语句的前面，加上分号，这样PLD就能正确的判断出对象的类型
+ 
+ 
+ 
+11.Selectfor Update 及其粘贴功能
+ 
+有时我们需要把一些数据导入数据库中，如果用UE拼Insert语句，会比较麻烦，而且操作性不强。例子介绍一下如何从Excel中提取文本插入到数据库中我们的Excel文件中有三列：在数据库中建立临时表：create table t1 (cino varchar2(100), contno varchar2(100), loannovarchar2(100))然后在SQL Window中输入select t1 for update，并点击锁型鼠标，进入编辑状态:用鼠标点击第一行的输入窗口，这时PLD会死锁几秒钟，然后可以见到光标在第一行的输入框中闪动，用鼠标把CINO, CONTNO, LOANNO选中：进Excel中，把需要插入数据库的内容选中，然后切换到PLD，按Ctrl + V：点击√，然后再点击Commit按钮，则数据提交到表t1中，执行select * from t1可以看到内容;
+ 
+ 
+ 
+12.TNSNames
+ 
+菜单Help -> Support Info ->TNS Names，可以查看Oracle的tnsnames.ora;
+ 
+ 
+ 
+13.Copyto Excel
+ 
+在SQL Window中执行Select语句，在结果出来以后，右键点击下面的数据区，选择Copy to Excel，可以把数据区的记录原样拷贝到Excel中。
+ 
+但有两点需要注意：
+ 
+     1).field中不能以=开始，否则Excel会误认为是函数；
+ 
+     2).数字不要超过17位，否则后面的位数将会置为0，但可以通过在数字前加‘来使Excel认为该field是文本，同时对于数据库中Numbe类型的字段，最好用to_char输出，不然可能会显示不正常
+ 
+ 
+ 
+14.调试存储过程
+ 
+在使用PL/SQL Developer操作Oracle时，有时候调用某些存储过程，或者调试存储过程；
+ 
+调用存储过程的方法：首先，在PL/SQL Developer左边的Browser中选择Procedures，查找需要调用的存储过程；然后，选中调试的存储过程，点击右键，选择Test，在弹出来的Test script窗口中，对于定义为in类型的参数，需要给该参数的Value输入值；最后点击上面的条数按钮：start debugger 或者按F9；最后点击：RUN 或者Ctrl+R ;
+ 
+15.oralce精简客户端的使用
+ 
+要想PL/SQL连接oracle数据库，除了PL/SQL Developer 之外还需要Oracle客户端，有一个更方便的方法就是使用Oracle精简客户端，很多地方可以下载，文件很小，耗资源也少。安装完成后修改安装目录下的/Oracle/ora90/network/ADMIN/tnsnames.ora
+ 
+文件：格式如下：
+ 
+DATABASE_NAME =(DESCRIPTION = (ADDRESS_LIST= (ADDRESS = (PROTOCOL = TCP)(HOST = 127.0.0.1)(PORT = 1521)) )
+ 
+(CONNECT_DATA = #(SERVICE_NAME = dealer)(SID = SID_NAME) #(SERVER = DEDICATED) ))。
+ 
+16.特殊Copy
+ 
+在SQL Window里写好的SQL语句通常需要放到Java或者别的语言内，就需要转成字符串并上加上相应的连字符，这一个事不需要再重复做了，在写好的SQL上点右键，使用特殊Copy即OK！
+ 
+设置方法：鼠标右键 --> Special Copy

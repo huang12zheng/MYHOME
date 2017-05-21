@@ -1,0 +1,11 @@
+comment
+GLOBAL
+remark============================================================================
+remark Name         : $[![GLOBAL]!]
+remark Author       : $[![{your name}]!]
+remark Version      : $[![{Version}]!]
+remark Date         : 20170515  
+remark License      : $[![No License]!]
+remark Description  : $[![To be added........]!]
+remark============================================================================$[![]!]
+[>END<]!$[FingerTextData FingerTextData]@#

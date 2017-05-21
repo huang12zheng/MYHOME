@@ -1,0 +1,17 @@
+FinianceKnow
+StockReview
+SCRIPT
+MyHappy
+DealWay_trip
+DealWay_method
+DealWay_treat
+Work_method
+Work_sense
+Virtusl
+Internet_route
+Oracle
+vbs
+ahk
+cmd
+python
+linux

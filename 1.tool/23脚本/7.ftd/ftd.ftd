@@ -1,0 +1,28 @@
+template
+Ext:ftd
+$[![name]!]
+$[![Ext]!]:$[![ftd]!]
+$[![body]!]
+[>END<$[![]]!]
+[>END<]!$[FingerTextData FingerTextData]@#
+vbs
+Ext:ftd
+$[![name]!]
+Ext:vbs
+$[![body]!]
+[>END<$[![]]!]
+[>END<]!$[FingerTextData FingerTextData]@#
+py
+Ext:ftd
+$[![name]!]
+Ext:py
+$[![body]!]
+[>END<$[![]]!]
+[>END<]!$[FingerTextData FingerTextData]@#
+name
+Ext:ftd
+$[![name]!]
+Ext:$[![name]!]
+$[![body]!]
+[>END<$[![]]!]
+[>END<]!$[FingerTextData FingerTextData]@#

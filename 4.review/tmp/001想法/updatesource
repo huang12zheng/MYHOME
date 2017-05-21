@@ -1,0 +1,23 @@
+#!/bin/bash
+function updaterep(){
+	sudo apt-get update		#更新源列表
+	sudo apt-get dist-upgdate	#更新软件列表
+}
+function installdepack(){
+	sudo apt-get install -y aptitude
+	awk -F'-[0-9]' '{print $1}' Package_list |awk '{print $1}' |uniq |xargs aptitude install -y > output.log 2>&1
+	echo "cat output.log"
+}
+#function installdepack(){
+#	sudo apt-get install -y aptitude
+#	#10.2
+#	#sudo aptitude install -y gcc libaio1 lesstif2lesstif2-dev make libc6 libc6-i386 libc6-dev-i386 libstdc++6 lib32stdc++6lib32z1 ia32-libs rpm make binutil binutils-dev binutils
+#	sudo aptitude  install -y alien binutils build-essential cpp-4.4 debhelper g++-4.4 gawk gcc-4.4 gcc-4.4-base gettext html2text ia32-libs intltool-debian ksh lesstif2 lib32bz2-dev lib32z1-dev libaio-dev libaio1 libbeecrypt7 libc6 libc6-dev libc6-dev-i386 libdb4.8 libelf-dev libelf1 libltdl-dev libltdl7 libmotif4 libodbcinstq4-1 libodbcinstq4-1:i386 libqt4-core libqt4-gui libsqlite3-0 libstdc++5 libstdc++6 libstdc++6-4.4-dev lsb lsb-core lsb-cxx lsb-desktop lsb-graphics lsb-qt4 make odbcinst pax po-debconf rpm rpm-common sysstat unixodbc unixodbc-dev unzip
+#	#11.2
+#	#sudo aptitude install -y binutils compat-libcap1  compat-libstdc++-33 compat-libstdc++-33*.i686 elfutils-libelf-devel gcc gcc-c++ glibc*.i686 glibc glibc-devel glibc-devel*.i686 libgcc*.i686 libgcc libstdc++ libstdc++*.i686 libstdc++-devel libstdc++-devel*.i686 libaio libaio*.i686 libaio-devel libaio-devel*.i686 make sysstat unixODBC unixODBC*.i686 unixODBC-devel unixODBC-devel*.i686 libXp ksh
+#}
+function main(){
+updaterep	#更新源
+installdepack	#安装oraclew依赖包
+}
+main #2>"`date +%y%m%d%H%M`""_ora.log"

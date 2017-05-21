@@ -1,0 +1,21 @@
+init(){
+mkdir mydocument
+cd mydocument
+mkdir templete
+cd tmplete
+#touch readme initialcon object 'scope(rch)' relationship revise git
+touch 陈述问题 提出解决问题的方案 评估该方案的优点 列举该方案的缺点 对该方案进行直觉判断 总结陈述，做出决策
+}
+derive(){
+folderlist=""
+}
+#this file will record your modification in this folder
+#You may put into all information in this file,including some tips.
+#information like:
+#陈述问题
+#提出解决问题的方案
+#评估该方案的优点
+#列举该方案的缺点
+#对该方案进行直觉判断
+#总结陈述，做出决策
+#you may think this file is a root
