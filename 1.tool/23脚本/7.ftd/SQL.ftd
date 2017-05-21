@@ -1,0 +1,47 @@
+conn
+Lang:sql
+sqlplus /nolog
+conn hs_$[![sett]!]/$[![hundsun]!]@$[![81-DATA]!];$[![]!]
+[>END<]!$[FingerTextData FingerTextData]@#
+conn2
+Lang:sql
+sqlplus hs_$[![sett]!]/$[![hundsun]!]@$[![81-DATA]!];$[![]!]
+[>END<]!$[FingerTextData FingerTextData]@#
+ss
+Lang:sql
+Select a.*,rowid from hs_$[![sett]!].$[![squarepreclear]!] a where 1=1 $[2[and $[![condition]!]$[![]!]]2];$[![]!]
+[>END<]!$[FingerTextData FingerTextData]@#
+ii
+Lang:sql
+insert into hs_$[![sett]!].$[![squarepreclear]!]$[![]!] Select a.* from hs_$[![sett]!].$[![squarepreclear]!]$[![]!] a where 1=1 $[2[and $[![condition]!]$[![]!]]2];$[![]!]
+[>END<]!$[FingerTextData FingerTextData]@#
+dd
+Lang:sql
+delete from hs_$[![sett]!].$[![squarepreclear]!] a where 1=1 $[2[and $[![condition]!]$[![]!]]2];$[![]!]
+[>END<]!$[FingerTextData FingerTextData]@#
+uu
+Lang:sql
+Update hs_$[![sett]!].$[![squarepreclear]!] a where 1=1 $[2[and $[![condition]!]$[![]!]]2];$[![]!]
+[>END<]!$[FingerTextData FingerTextData]@#
+index
+Lang:sql
+SELECT a.COLUMN_NAME AS COLUMN_NAME  FROM all_ind_columns a WHERE upper(a.INDEX_OWNER)=UPPER('hs_$[![sett]!]') AND upper(a.TABLE_NAME)=UPPER('$[![squarepreclear]!]') AND EXISTS(SELECT 1 from all_indexes b WHERE b.UNIQUENESS='UNIQUE' AND b.INDEX_NAME=a.INDEX_NAME);$[![]!]
+[>END<]!$[FingerTextData FingerTextData]@#
+index2
+Lang:sql
+$[![(cha)conn]!]
+SELECT a.COLUMN_NAME AS COLUMN_NAME  FROM USER_ind_columns a WHERE /*upper(a.INDEX_OWNER)=UPPER('hs_$[![sett]!]') AND*/ upper(a.TABLE_NAME)=UPPER('$[![squarepreclear]!]') AND EXISTS(SELECT 1 from USER_indexes b WHERE b.UNIQUENESS='UNIQUE' AND b.INDEX_NAME=a.INDEX_NAME);$[![]!]
+[>END<]!$[FingerTextData FingerTextData]@#
+bak
+Lang:sql
+Create table hs_$[![sett]!].$[![squarepreclear]!]$[![(key)DATE:yyyyMMdd]!] as Select a.* from hs_$[![sett]!].$[![squarepreclear]!] a where 1=1 $[2[and $[![condition]!]$[![]!]]2];$[![]!]
+[>END<]!$[FingerTextData FingerTextData]@#
+SWITCHtable
+Lang:sql
+UPDATE hs_$[![sett]!].$[![squarepreclear]!] a SET a.$[![col]!]='$[![value3]!]' WHERE a.$[![col]!]='$[![value1]!]';
+UPDATE hs_$[![sett]!].$[![squarepreclear]!] a SET a.$[![col]!]='$[![value2]!]' WHERE a.$[![col]!]='$[![value1]!]';
+UPDATE hs_$[![sett]!].$[![squarepreclear]!] a SET a.$[![col]!]='$[![value1]!]' WHERE a.$[![col]!]='$[![value3]!]';
+[>END<]!$[FingerTextData FingerTextData]@#
+condition
+Lang:sql
+a.fund_account='1058462'[>END<]!$[FingerTextData FingerTextData]@#

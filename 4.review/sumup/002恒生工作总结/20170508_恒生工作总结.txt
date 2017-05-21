@@ -1,0 +1,19 @@
+Desk/
+1.2016自动化编写常用路径>>COMMON  >>ahk
+2.bak>>tmp/bak
+3.compare>>tmp/compare
+4.HSCRP>>COMMON	>>ahk
+5.测试中SQL>> sql & 恒生测试 & ahk &auto...
+6.清算工作框架>> 恒生测试 & 提高效率
+7.FileLocator
+8.前台程序,后台程序>>恒生测试
+9.新业务>> COMMON>> 恒生测试\XX & 
+10.培训文档	>>	资料
+11.重要工具2-20151211 >>常用
+12.报表>>tmp/报表
+13.编译报错>>tmp/编译报错
+14.hs_asset.stock >> 结果检查工具
+15.报告查询详细>>review\002体检报告
+
+cygwin
+1.review>>2.shell

@@ -1,0 +1,23 @@
+1.Mongodb.exe配置时找不到数据库如何解决?
+	mkdir /p g:/data/db
+2.mongodb官网是?
+3.mongodb包大小约为?
+4.如何自己定义安装路径?
+5.命令行下运行 MongoDB服务器?
+	mongod.exe --dbpath g:\data\db
+6.将MongoDB服务器作为Windows服务运行
+	mongod.exe --bind_ip yourIPadress --logpath "g:\data\dbConf\mongodb.log" --logappend --dbpath "C:\data\db" --port yourPortNumber --serviceName "YourServiceName" --serviceDisplayName "YourServiceName" --install
+	mongod.exe --dbpath g:\data\db --logpath "g:\data\dbConf\mongodb.log" --logappend --install 
+	NET START mongoDBS
+7.如何检查服务是否运行
+	http://localhost:27017/
+8.数据库信息检查
+	show dbs
+	db
+	db.runoob.findOne()
+	db.runoob.find()
+9.数据库切换
+	use local
+		local: 这个数据永远不会被复制，可以用来存储限于本地单台服务器的任意集合
+		config: 当Mongo用于分片设置时，config数据库在内部使用，用于保存分片的相关信息。
+		admin： 从权限的角度来看，这是"root"数据库
