@@ -1,0 +1,18 @@
+Python 笔记(有基础编程实例)
+http://blog.csdn.net/liuxuejiang158blog/article/details/21528989
+Python核心编程 第3版 英文版
+http://www.z-dig.com/error/104-1-1.html
+
+http://blog.csdn.net/android_zhujinwei/article/details/54019233
+https://github.com/huang12zheng/Win10_initconfig
+第三版:github.com/xupeng8/core_python.git
+https://github.com/vishwanath79/Core-Python-Application-Book/tree/master/Chapter%202
+https://github.com/boreyko/core-python-application-programming
+第二版:https://github.com/Xyntax/
+https://github.com/greyli/CorePythonProgrammingExercise/blob/master/Chapter%20(2)/functions.py
+???https://github.com/HugheHuang/core-python-applications-programming-3rd-edition-/blob/master/CH2/tsTclntSS.py
+
+https://cn.udacity.com/course/intro-to-computer-science--cs101/
+Udacity 提供了一个很棒的免费课程，带你引入 Python 编程学习，学习搜索引擎的 更多东西，以及如何构建你自己的小型网络爬虫。它的确是一个值得参与的有趣的课程，并且还提供了额外的引导和社区支持.
+
+http://blog.chinaunix.net/uid-26200547-id-3418038.html
