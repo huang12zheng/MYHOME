@@ -1,0 +1,31 @@
+digraph JoinQuant_day2{
+	fontname=KaiTi
+	rankdir=LR
+	node[fontname=KaiTi]
+	
+	node[shape=record]
+	
+	用户需要实现的函数[label=" %用户需要实现的函数%|{ <initialize>initialize|handle_data}|{before_trading_start|after_trading_end}|{process_initialize|after_code_changed}"]
+	回测引擎[label=" %回测引擎%|{<LBTenv> 回测环境|<LBTP> 回测过程}|{ 数据| 安全| <运行频率>运行频轨}|{ 订单处理}|{ 拆分合并和分红| 股息红利}|{<slippage> 滑点| 交易税费}|{<RiskIndicator> 风险指标| 运行时间}| 模拟盘注意事项}"]
+	
+	#运行频率说明[[label=" 运行频率说明|"]
+	RII[label="Risk Indicator|{Total Returns| Total Annualized Returns}|{ Benchmark Returns| Benchmark Annualized Returns}|{ Alpha| Beta | Sharpe}|{ Sortino | Information Ratio}|{Algorithm Volatility|Benchmark Volatility}|Max Drawdown|Downside Risk|{ 胜率| 日胜率}| 盈亏比"]
+	策略设置函数[label=" %策略设置函数%|{set_benchmark}|{set_order_cost|set_slippage| 设置成交量比例}| 设置复权"]
+
+	获取数据函数[label=" %获取数据函数%|{get_price| get_findamentals| gta.run_query| get_index_stocks| get_concept_stocks| get_all_securities| get_security_info| jqdate.get_trade_days| jqdate.get_all_trade_days| jqdate.get_money_flow| get_extras}"]
+	回测专用[label=" %回测专用%|{history|attribute_history|get_current_date}"]
+	下单函数[label=" %下单函数%|{order| order_target| order_value| order_target_value}|{ get_open_orders| get_orders| get_trades}|cancel_order"]
+	定时函数[label=" 定时函数| {run_monthly|run_weekly|run_daily}"]
+	定时函数实例[label=" 定时函数实例| {run_monthly(func, monthday, time='open', reference_security)}|{run_daily(func, time='open', reference_security)}"]
+	回测过程详细说明[label=" 策略|{ 股票池|handle_data函数}| 开始信息|{ 回测开始| 结束日期}|{ 初始资金| 调仓间隔}| 订单|{get_open_orders|cancel_order}|{ order_volume_ratio|}|handle_data|{record|}| 日志| 结果|{ 收益| 基准 等}"]
+
+
+#edges
+	用户需要实现的函数:initialize->定时函数->定时函数实例
+
+回测引擎:LBTP->回测过程详细说明
+回测引擎:LBTenv->python3
+#回测引擎:运行频率->运行频率说明
+回测引擎:slippage->set_slippage
+回测引擎:RiskIndicator->RII
+}
